@@ -1,5 +1,7 @@
 package com.superpig1953.server;
 
+import com.superpig1953.server.handler.PacketManager;
+
 import java.io.*;
 import java.net.*;
 
@@ -21,8 +23,7 @@ public class Server {
 
                     String message;
                     while ((message = input.readLine()) != null) {
-                        System.out.println("Client message: " + message);
-                        output.println("Server received the message [" + message + "]");
+                        PacketManager.handlePacket(message);
                     }
                 }
             }
